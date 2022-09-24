@@ -13,16 +13,20 @@ namespace ConsoleApp1
 
             int number = int.Parse(year1);
             int number2 = number % 4;
-         
+
 
             if (number2 != 0)
             {
-                Console.WriteLine($" {year1}  Не високосный год");
                 Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($" {year1}  Не високосный год");
             }
             else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($" {year1}  Високосный год");
-            Console.ForegroundColor = ConsoleColor.Red;
+            }
+           
+            
 
 
 
