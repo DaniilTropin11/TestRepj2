@@ -18,13 +18,15 @@ namespace ConsoleApp1
             if (number2 != 0)
             {
                 Console.WriteLine($" {year1}  Не високосный год");
+                Console.ForegroundColor = ConsoleColor.Green;
             }
             else
                 Console.WriteLine($" {year1}  Високосный год");
+            Console.ForegroundColor = ConsoleColor.Red;
 
 
 
-      
+
 
             Console.ReadKey();
         }
