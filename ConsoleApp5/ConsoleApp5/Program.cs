@@ -15,7 +15,7 @@ namespace ConsoleApplication4
 
             Person std = new Person("Даниил", "Тропин", new DateTime(2010, 10, 10));
             Console.WriteLine(std.ToShortString());
-            //Person std2 = new Person("Даниил", "Тропин", "4.3.0");
+            //Person std2 = new Person("Даниил", "Тропин", "April 10, 2009");
             //Console.WriteLine(std2.ToString());
         }
     }
@@ -83,16 +83,16 @@ namespace ConsoleApplication4
         }
 
 
-//public string ToFullString()
+        //public string ToFullString()
         //{
         //    return "\n" + "Имя: " + Name + "\n" + "Фамилия: " + LastName "\n" + "Дата рождения" + BDate;
         //}
-        //public override string ToString()
-        //{
-        //    return string.Format("{0} {1}\nDate of birth: {2}", Name, LastName, BDate);
-        //}
+        public override string ToString()
+        {
+            return string.Format("{0} {1}\nDate of birth: {2}", Name, LastName, BDate);
+        }
 
-        
+
 
         public string ToShortString()
         {
