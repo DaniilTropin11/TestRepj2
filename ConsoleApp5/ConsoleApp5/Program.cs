@@ -15,8 +15,8 @@ namespace ConsoleApplication4
 
             Person std = new Person("Даниил", "Тропин", new DateTime(2010, 10, 10));
             Console.WriteLine(std.ToShortString());
-            //Person std2 = new Person("Даниил", "Тропин", "April 10, 2009");
-            //Console.WriteLine(std2.ToString());
+            Person std2 = new Person("Даниил", "Тропин", DateTime.Parse("December 22, 2001"));
+            Console.WriteLine(std2.ToString("dd.MMMM.yyyy"));
         }
     }
 
@@ -38,8 +38,8 @@ namespace ConsoleApplication4
         }
 
 
-        public Person() : this("Default_Name", "Default_Sname", new DateTime(2001, 22, 12))
-        { }
+        //public Person() : this("Default_Name", "Default_Sname", new DateTime(2001, 22, 12))
+        //{ }
 
 
 
