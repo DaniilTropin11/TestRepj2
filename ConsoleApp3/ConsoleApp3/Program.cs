@@ -76,10 +76,44 @@ namespace ConsoleApp3
             return $"имя Артикля {Name} Рейтинг {Rating} Автор {Author}";
         }
     }
-}
-       
 
-            
+
+    public class Magazine
+    {
+
+        public Magazine(string name, int frequency, DateTime publicationDate, int circulation, string article)
+        {
+            Name = name;
+            Frequency = frequency;
+            PublicationDate = publicationDate;
+            Circulation = circulation;
+            Article = article;
+        }
+
+        public string Name { get; set; }
+        public int Frequency { get; set; } // Частота
+        public DateTime PublicationDate { get; set; }
+        public int Circulation { get; set; } // номер тиража 
+        public string Article { get; set; }
+
+
+        public string ToFullString()
+        {
+        return $"/n название журнала{Name} /n периодичности выхода журнала{Frequency} /n дата выхода журнала; {PublicationDate} /n тираж журнала {Circulation} /n списком статей в журнале {Article}";
+        }
+
+    public Magazine()
+        {
+            Name = "Название журнала";
+
+        }
+    }
+}
+
+
+
+
+
 
 
 
