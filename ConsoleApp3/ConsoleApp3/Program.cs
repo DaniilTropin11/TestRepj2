@@ -18,6 +18,8 @@ namespace ConsoleApp3
             Console.WriteLine(a.ToFullString());
             Author author = new Author("","",new DateTime(2010,10,10), "",1,"222");
             Console.WriteLine(author.ToFullString());
+            Magazine magazine = new Magazine("", 2, new DateTime(2010, 10, 10), 3, "");
+            Console.WriteLine(magazine.ToFullString());
         }
     }
 
@@ -47,7 +49,7 @@ namespace ConsoleApp3
         public string LastName { get; set; }
         public string ToFullString()
         {
-            return $"/n имя Автора{Name} /n Фамилия Автора{SurName} /n Дата рождение {BirthDate} /n Место рождение {Location} /n {AmountPublication} /n {LastName}";
+            return $"/n Лев {Name} /n Толстой{SurName} /n 09.09.1828 {BirthDate} /n Российская империя {Location} /n 1863  {AmountPublication} /n {LastName}";
         }
 
     }
@@ -63,7 +65,7 @@ namespace ConsoleApp3
         public Article()
         {
             Name = "Какой-то артикель";
-            Rating = 3.5;
+            Rating = 10;
             Author = new Author("name", "surname", new DateTime(2000, 12, 1), "location", 2007, "lastName");
 
         }
@@ -73,7 +75,7 @@ namespace ConsoleApp3
 
         public string ToFullString()
         {
-            return $"имя Артикля {Name} Рейтинг {Rating} Автор {Author}";
+            return $"Война и мир {Name} Рейтинг {Rating} Л.Н. Толстой {Author}";
         }
     }
 
@@ -87,7 +89,11 @@ namespace ConsoleApp3
             Frequency = frequency;
             PublicationDate = publicationDate;
             Circulation = circulation;
-            Article = article;
+            Article = new Article[]
+                { new Article("Выход 1",2,new Author("Семен", "Иванович", 10,2009,"Ivanovo",3,"abc")),
+                  new Article("Статья 2", 2,new Author("Семен", "Иванович", 10,2009,"Ivanovo",3,"abc"))
+                };
+
         }
 
         public string Name { get; set; }
@@ -99,16 +105,15 @@ namespace ConsoleApp3
 
         public string ToFullString()
         {
-        return $"/n название журнала{Name} /n периодичности выхода журнала{Frequency} /n дата выхода журнала; {PublicationDate} /n тираж журнала {Circulation} /n списком статей в журнале {Article}";
+            return $"/n Русская правда {Name} /n Каждый месяц{Frequency}  {PublicationDate} /n тираж журнала {Circulation} /n списком статей в журнале {Article}";
         }
 
-    public Magazine()
-        {
-            Name = "Название журнала";
-
-        }
-    }
+       
+       
 }
+   
+    }
+
 
 
 
