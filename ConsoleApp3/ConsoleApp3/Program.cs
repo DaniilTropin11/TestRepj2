@@ -11,121 +11,116 @@ namespace ConsoleApp3
     #region название региона
     class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
-            Article a = new Article();
-
-            Console.WriteLine(a.ToFullString());
-            Author author = new Author("","",new DateTime(2010,10,10), "",1,"222");
-            Console.WriteLine(author.ToFullString());
-            Magazine magazine = new Magazine("", 2, new DateTime(2010, 10, 10), 3, "");
+            Magazine magazine = new();
             Console.WriteLine(magazine.ToFullString());
         }
     }
 
     #endregion
-    enum Frequency { Weekly, Monthly, Yearly }
+    enum Frequency { Weekly, Monthly, Yearly }// перечисление 
 
 
-    public class Author
+    public class Person
     {
-
-
-        public Author(string name, string surName, DateTime birthDate, string location, int amountPublication, string lastName)
+        public string Surname { get; }
+        public string Name { get; }
+        public Person(string surname, string name)
         {
+            Surname = surname;
             Name = name;
-            SurName = surName;
-            BirthDate = birthDate;
-            Location = location;
-            AmountPublication = amountPublication;
-            LastName = lastName;
         }
-
-        public string Name { get; set; }
-        public string SurName { get; set; }
-        public DateTime BirthDate { get; set; }
-        public string Location { get; set; }
-        public int AmountPublication { get; set; }
-        public string LastName { get; set; }
-        public string ToFullString()
-        {
-            return $"/n Лев {Name} /n Толстой{SurName} /n 09.09.1828 {BirthDate} /n Российская империя {Location} /n 1863  {AmountPublication} /n {LastName}";
-        }
-
+        public string FullName => $"{Surname} {Name}";
     }
-    class Article
+    public class Article
     {
-        public Article(string name, double rating, Author author)
+        public Person Author { get; }
+        public string Title { get; }
+        public double Rating { get; }
+        public Article(Person author, string title, double rating)
         {
-            Name = name;
-            Rating = rating;
             Author = author;
+            Title = title;
+            Rating = rating;
         }
-
         public Article()
         {
-            Name = "Какой-то артикель";
-            Rating = 10;
-            Author = new Author("name", "surname", new DateTime(2000, 12, 1), "location", 2007, "lastName");
-
+            Author = new("Акакий", "Виктор");
+            Title = "Как стать успешным за 0 дней";
+            Rating = 4.7;
         }
-        public string Name { get; set; }
-        public double Rating { get; set; }
-        public Author Author { get; set; }
-
         public string ToFullString()
         {
-            return $"Война и мир {Name} Рейтинг {Rating} Л.Н. Толстой {Author}";
+            return $"{Author.Name} {Author.Surname} - {Title}. Рейтинг: {Rating}.";
         }
     }
 
 
     public class Magazine
     {
-
-        public Magazine(string name, int frequency, DateTime publicationDate, int circulation, string article)
+        private readonly string _name;
+        private readonly Frequency _frequency;
+        private readonly DateTime _release;
+        private readonly int _amountSells;
+        private Article[]? _articles;
+        public Magazine(string name, Frequency frequency, DateTime release, int amountSells)
         {
-            Name = name;
-            Frequency = frequency;
-            PublicationDate = publicationDate;
-            Circulation = circulation;
-            Article = new Article[]
-                { new Article("Выход 1",2,new Author("Семен", "Иванович", 10,2009,"Ivanovo",3,"abc")),
-                  new Article("Статья 2", 2,new Author("Семен", "Иванович", 10,2009,"Ivanovo",3,"abc"))
-                };
-
+            _name = name;
+            _frequency = frequency;
+            _release = release;
+            _amountSells = amountSells;
         }
-
-        public string Name { get; set; }
-        public int Frequency { get; set; } // Частота
-        public DateTime PublicationDate { get; set; }
-        public int Circulation { get; set; } // номер тиража 
-        public string Article { get; set; }
-
-
-        public string ToFullString()
+        public Magazine()
         {
-            return $"/n Русская правда {Name} /n Каждый месяц{Frequency}  {PublicationDate} /n тираж журнала {Circulation} /n списком статей в журнале {Article}";
+            _name = "Журнал Акакия";
+            _frequency = Frequency.Weekly;
+            _release = new(2022, 10, 20, 20, 41, 23);
+            _amountSells = 100232;
+            _articles = new[] { new Article() };
         }
-
-       
-       
-}
-   
+        public string Name => _name;
+        public Frequency Frequency => _frequency;
+        public DateTime Release => _release;
+        public int AmountSells => _amountSells;
+        public Article[] Articles => _articles;
+        public double? MiddleRating
+        {
+            get
+            {
+                if (_articles is null)
+                {
+                    return null;
+                }
+                return _articles.Sum(x => x.Rating) / _articles.Length;
+            }
+        }
+        public void AddArticles(params Article[] articles)
+        {
+            _articles = articles;
+        }
+        public string ToFullString(bool isArticles = true)
+        {
+            StringBuilder builder = new();
+            string baseString = $"Название журнала: {Name}\n" +
+                $"Частота выпуска: {Frequency}\n" +
+                $"Дата выпуска: {Release.ToLongDateString()}\n" +
+                $"Кол-во продаж: {AmountSells}";
+            if (isArticles)
+            {
+                builder.Append(baseString);
+                for (int i = 0; i < Articles.Length; i++)
+                {
+                    builder.Append($"\nСтатья {i + 1}) {Articles[i].ToFullString()}");
+                }
+                return builder.ToString();
+            }
+            return baseString;
+        }
+        public string ToShortString()
+        {
+            return $"{ToFullString(false)}\n" +
+                $"Средний рейтинг: {MiddleRating}";
+        }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
