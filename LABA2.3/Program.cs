@@ -11,6 +11,7 @@ namespace laba
         {
             Article[] articles = new Article[3];
             Person o = new Person("", "");
+
         }
     }
 
