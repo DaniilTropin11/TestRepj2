@@ -9,7 +9,8 @@ namespace laba
     {
         private static void Main()
         {
-            Console.WriteLine();
+            Article[] articles = new Article[3];
+            Person o = new Person("", "");
         }
     }
 
@@ -76,8 +77,10 @@ namespace laba
         public DateTime Release { get { return _release; } set { _release = value; } }
         public int AmountSells { get { return _amountSells; } set { _amountSells = value; } }
         public Article[] Articles { get { return _articles; } set { _articles = value; } }
-        public void AddArticles(Article[] newArticles);
-
+        public void AddArticles(params Article[] newArticles)
+    {
+            
+    }
 
         public double? MiddleRating
         {
