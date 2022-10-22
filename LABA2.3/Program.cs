@@ -76,6 +76,9 @@ namespace laba
         public DateTime Release { get { return _release; } set { _release = value; } }
         public int AmountSells { get { return _amountSells; } set { _amountSells = value; } }
         public Article[] Articles { get { return _articles; } set { _articles = value; } }
+        public void AddArticles(Article[] newArticles);
+
+
         public double? MiddleRating
         {
             get
