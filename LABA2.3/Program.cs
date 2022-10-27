@@ -1,90 +1,100 @@
 ﻿using System;
-namespace laba;
+using System.Linq;
 
-class Program 
+namespace laba
+
 {
-    private static void Main()
+    enum Frequency { Weekly, Monthly, Yearly }
+    class Program
     {
-        Console.WriteLine();
-    }
-}
-enum Frequency { Weekly, Monthly, Yearly }
-
-public class Person 
-{
-    public string Name { get; }
-    public string Surname { get;}
-
-    public Person(string name, string surname)
-    {
-        Name = name;
-        Surname = surname;
-    }
-    public string FullName => $"{Surname} {Name}";
-
-}
-public class Article
-{
-    public Person Author { get; }
-    public string Title { get; }
-    public double Rating { get; }
-
-    public Article (Person author, string title, double rating)
-    {
-        Author = author;
-        Title = title;
-        Rating = rating;
-    }
-    public Article()
-    {
-        Author = new("Даниил", "Тропин");
-        Title = "УЧИМ ПРОГРАММИРОВАНИЕ";
-        Rating = 10;
-    }
-    public string ToFullString()
-    {
-        return $"{Author.Name} {Author.Surname} - {Title}. Рейтинг: {Rating}"; // описание 
-    }
-}
-public class Magazine
-{
-    private readonly string _name;
-    private readonly Frequency _frequency;
-    private readonly DateTime _release;
-    private readonly int _amountSells;
-    private Article[]? _articles;
-    public Magazine(string name, Frequency frequency, DateTime release, int amountSells)
-    {
-        _name = name;
-        _frequency = frequency;
-        _release = release;
-        _amountSells = amountSells;
-    }
-    public Magazine()
-    {
-        _name = "Журнал Акакия";
-        _frequency = Frequency.Weekly;
-        _release = new(2022, 10, 20, 20, 41, 23);
-        _amountSells = 100232;
-        _articles = new[] { new Article() };
-    }
-    public string Name => _name;
-    public Frequency Frequency => _frequency;
-    public DateTime Release => _release;
-    public int AmountSells => _amountSells;
-    public Article[] Articles => _articles;
-    public double? MiddleRating
-    {
-        get
+        private static void Main()
         {
-            if (_articles is null)
+            Article[] articles = new Article[3];
+            Person o = new Person("", "");
+
+        }
+    }
+
+    public class Person
+    {
+        public string Name { get; }
+        public string Surname { get; }
+
+        public Person(string name, string surname)
+        {
+            Name = name;
+            Surname = surname;
+        }
+        public string FullName => $"{Surname} {Name}";
+
+    }
+    public class Article
+    {
+        public Person Author { get; }
+        public string Title { get; }
+        public double Rating { get; }
+
+        public Article(Person author, string title, double rating)
+        {
+            Author = author;
+            Title = title;
+            Rating = rating;
+        }
+        public Article()
+        {
+            Author = new Person("Даниил", "Тропин");
+            Title = "УЧИМ ПРОГРАММИРОВАНИЕ";
+            Rating = 10;
+        }
+        public string ToFullString()
+        {
+            return $"{Author.Name} {Author.Surname} - {Title}. Рейтинг: {Rating}"; // описание 
+        }
+    }
+    public class Magazine
+    {
+        private string _name;
+        private Frequency _frequency;
+        private DateTime _release;
+        private int _amountSells;
+        private Article[] _articles;
+        private Magazine(string name, Frequency frequency, DateTime release, int amountSells)
+        {
+            _name = name;
+            _frequency = frequency;
+            _release = release;
+            _amountSells = amountSells;
+        }
+        public Magazine()
+        {
+            _name = "Журнал правда";
+            _frequency = Frequency.Weekly;
+            _release = new DateTime(2022, 10, 20);
+            _amountSells = 100232;
+            _articles = new[] { new Article() };
+        }
+        public string Name { get { return _name; } set { _name = value; } }
+        private Frequency Frequency { get { return _frequency; } set { _frequency = value; } }
+        public DateTime Release { get { return _release; } set { _release = value; } }
+        public int AmountSells { get { return _amountSells; } set { _amountSells = value; } }
+        public Article[] Articles { get { return _articles; } set { _articles = value; } }
+        public void AddArticles(params Article[] newArticles)
+    {
+            
+    }
+
+        public double? MiddleRating
+        {
+            get
             {
-                return null;
+                if (_articles is null)
+                {
+                    return null;
+                }
+                return _articles.Sum(x => x.Rating) / _articles.Length;
             }
-            return _articles.Sum(x => x.Rating) / _articles.Length;
         }
     }
 }
-
 
 
