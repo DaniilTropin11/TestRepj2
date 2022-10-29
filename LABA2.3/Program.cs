@@ -1,115 +1,106 @@
 ﻿using System;
-namespace laba;
+namespace laba
 
-class Program 
 {
-    private static void Main()
+    class Program
     {
-        Magazine magazine = new();
-        Console.WriteLine(magazine.ToFullString());
-    }
-}
-enum Frequency { Weekly, Monthly, Yearly }
-
-public class Person 
-{
-    public string Name { get; }
-    public string Surname { get;}
-
-    public Person(string name, string surname)
-    {
-        Name = name;
-        Surname = surname;
-    }
-    public string FullName => $"{Surname} {Name}";
-
-}
-public class Article
-{
-    public Person Author { get; }
-    public string Title { get; }
-    public double Rating { get; }
-
-    public Article (Person author, string title, double rating)
-    {
-        Author = author;
-        Title = title;
-        Rating = rating;
-    }
-    public Article()
-    {
-        Author = new("Даниил", "Тропин");
-        Title = "УЧИМ ПРОГРАММИРОВАНИЕ";
-        Rating = 10;
-    }
-    public string ToFullString()
-    {
-        return $"{Author.Name} {Author.Surname} - {Title}. Рейтинг: {Rating}"; // описание 
-    }
-}
-public class Magazine
-{
-    private readonly string _name;
-    private readonly Frequency _frequency;
-    private readonly DateTime _release;
-    private readonly int _amountSells;
-    private Article[]? _articles;
-    public Magazine(string name, Frequency frequency, DateTime release, int amountSells)
-    {
-        _name = name;
-        _frequency = frequency;
-        _release = release;
-        _amountSells = amountSells;
-    }
-    public Magazine()
-    {
-        _name = "Журнал Акакия";
-        _frequency = Frequency.Weekly;
-        _release = new(2022, 10, 20, 20, 41, 23);
-        _amountSells = 100232;
-        _articles = new[] { new Article() };
-    }
-    public string Name => _name;
-    public Frequency Frequency => _frequency;
-    public DateTime Release => _release;
-    public int AmountSells => _amountSells;
-    public Article[] Articles => _articles;
-    public double? MiddleRating
-    {
-        get
+        private static void Main()
         {
-            if (_articles is null)
+            Magazine magazine = new();
+            Console.WriteLine(magazine.ToFullString());
+        }
+    }
+    public enum Frequency { Weekly, Monthly, Yearly }
+
+    public class Person
+    {
+        public string Name { get; }
+        public string Surname { get; }
+
+        public Person(string name, string surname)
+        {
+            Name = name;
+            Surname = surname;
+        }
+        public string FullName => $"{Surname} {Name}";
+
+    }
+    public class Article
+    {
+        public Person Author { get; }
+        
+        public string Title { get; }
+        public double Rating { get; }
+
+        public Article(Person author, string title, double rating)
+        {
+            Author = author;
+            Title = title;
+            Rating = rating;
+        }
+        public Article()
+        {
+            Author = new("Даниил", "Тропин");
+            Title = "УЧИМ ПРОГРАММИРОВАНИЕ";
+            Rating = 10;
+        }
+        public string ToFullString()
+        {
+            return $"{Author.Name} {Author.Surname} - {Title}. Рейтинг: {Rating}"; // описание 
+        }
+    }
+    public class Magazine
+    {
+        private readonly string _name;
+        private readonly Frequency _frequency;
+        private readonly DateTime _release;
+        private readonly int _amountSells;
+        private Article[] _articles;
+        public Magazine(string name, Frequency frequency, DateTime release, int amountSells)
+        {
+            _name = name;
+            _frequency = frequency;
+            _release = release;
+            _amountSells = amountSells;
+        }
+        public Magazine()
+        {
+            _name = "Журнал Акакия";
+            _frequency = Frequency.Weekly;
+            _release = new(2022, 10, 20, 20, 41, 23);
+            _amountSells = 100232;
+            _articles = new[] { new Article() };
+        }
+        public string Name => _name;
+        public Frequency Frequency => _frequency;
+        public DateTime Release => _release;
+        public int AmountSells => _amountSells;
+        public Article[] Articles => _articles;
+        public double? MiddleRating
+        {
+            get
             {
-                return null;
+                if (_articles is null)
+                {
+                    return null;
+                }
+                return _articles.Sum(x => x.Rating) / _articles.Length;
             }
-            return _articles.Sum(x => x.Rating) / _articles.Length;
         }
-    }
-}
-public void AddArticles(params Article[] articles)
-{
-    _articles = articles;
-}
-public string ToFullString(bool isArticles = true)
-{
-    StringBuilder builder = new();
-    string baseString = $"Название журнала: {Name}\n" +
-        $"Частота выпуска: {Frequency}\n" +
-        $"Дата выпуска: {Release.ToLongDateString()}\n" +
-        $"Кол-во продаж: {AmountSells}";
-    if (isArticles)
+    public void AddArticles(params Article[] articles)
     {
-        builder.Append(baseString);
-        for (int i = 0; i < Articles.Length; i++)
-        {
-            builder.Append($"\nСтатья {i + 1}) {Articles[i].ToFullString()}");
-        }
-        return builder.ToString();
+        _articles = articles;
     }
-    return baseString;
-}
-public string ToShortString()
-{
-    return $"{ToFullString(false)}\n" +
-        $"Средний рейтинг: {MiddleRating}";
+    public string ToFullString(bool isArticles = true)
+    {
+            return $"Название журнала: {Name}\n Частота выпуска: {Frequency}\n Дата выпуска " +
+                $"{Release.ToLongDateString()}\n Кол-во продаж: {AmountSells}";
+         
+    }
+    public string ToShortString()
+    {
+        return $"{ToFullString(false)}\n" +
+            $"Средний рейтинг: {MiddleRating}";
+    }
+    }
 }
