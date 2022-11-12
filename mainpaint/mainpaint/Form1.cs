@@ -23,6 +23,10 @@ namespace mainpaint
         Bitmap map = new Bitmap(100, 100);
         Graphics graphics;
         Pen pen = new Pen(Color.Black, 3f);
+        Point firstp = new Point();
+       
+
+       
         
         private void setsize() { Rectangle rectangle = Screen.PrimaryScreen.Bounds;
 
@@ -77,7 +81,7 @@ namespace mainpaint
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             mouse = true;
-            
+            firstp = e.Location;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -89,6 +93,8 @@ namespace mainpaint
         {
             mouse = false;
             _arrivepoins.ResetPoints();
+            Graphics gr = pictureBox1.CreateGraphics();
+            gr.DrawEllipse(new Pen(Brushes.Red), firstp.X, firstp.Y, e.X - firstp.X, e.Y - firstp.Y);
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
@@ -162,6 +168,16 @@ namespace mainpaint
         private void button6_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+            
         }
     }
 
