@@ -4,10 +4,11 @@ namespace laba
 {
     class Program
     {
-        private static void Main()
+        private static void Main() //+ в мейне по заданию больше действий нужно
         {
             Magazine magazine = new();
             Console.WriteLine(magazine.ToFullString());
+           
         }
     }
     public enum Frequency { Weekly, Monthly, Yearly }
@@ -87,11 +88,16 @@ namespace laba
                 return _articles.Sum(x => x.Rating) / _articles.Length;
             }
         }
-    public void AddArticles(params Article[] articles)
-    {
-        _articles = articles;
-    }
-    public string ToFullString(bool isArticles = true)
+    public void AddArticles( Article[] ArticlesToAdd) // неправильно реализован public void AddArticles(params Article[] articles), он не добавляет статьи в массив, а перезаписывает его
+        {
+            //_articles = articles;
+            //int _OldSize = _articles.Length;
+            //Array.Resize<Array>(ref _articles, _OldSize + ArticlesToAdd.Length);
+            //ArticlesToAdd.CopyTo(_articles, _OldSize);
+        }
+       
+
+            public string ToFullString(bool isArticles = true)
     {
             return $"Название журнала: {Name}\n Частота выпуска: {Frequency}\n Дата выпуска " +
                 $"{Release.ToLongDateString()}\n Кол-во продаж: {AmountSells}";
