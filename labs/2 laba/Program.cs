@@ -6,11 +6,15 @@ namespace laba
     {
         private static void Main() //+ в мейне по заданию больше действий нужно
         {
-            Magazine magazine = new();
+            Article[] ar = { new Article(), new Article() };
+            Magazine magazine = new Magazine();
+            Console.WriteLine(magazine.Articles.Length);
+            magazine.AddArticles(ar);
+            Console.WriteLine(magazine.Articles.Length);
             Console.WriteLine(magazine.ToFullString());
            
         }
-    }
+    }// Всё наверное
     public enum Frequency { Weekly, Monthly, Yearly }
 
     public class Person
@@ -91,9 +95,9 @@ namespace laba
     public void AddArticles( Article[] ArticlesToAdd) // неправильно реализован public void AddArticles(params Article[] articles), он не добавляет статьи в массив, а перезаписывает его
         {
             //_articles = articles;
-            //int _OldSize = _articles.Length;
-            //Array.Resize<Array>(ref _articles, _OldSize + ArticlesToAdd.Length);
-            //ArticlesToAdd.CopyTo(_articles, _OldSize);
+            int _OldSize = _articles.Length;
+            Array.Resize(ref _articles, _OldSize + ArticlesToAdd.Length);
+            ArticlesToAdd.CopyTo(_articles, _OldSize);
         }
        
 
