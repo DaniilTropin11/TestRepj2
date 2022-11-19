@@ -263,6 +263,11 @@ namespace laba_3_paint
         {
 
         }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            _selectedBrush = new Snowflake(SelectedColor, SelectedSize);
+        }
     }
    
 }

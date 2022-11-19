@@ -6,13 +6,13 @@ namespace laba
     {
         private static void Main() //+ в мейне по заданию больше действий нужно
         {
-            Article[] ar = { new Article(), new Article() };
+            Article[] ar = { new Article(), new Article() }; // массив статей с 2-мя статьями 
             Magazine magazine = new Magazine();
-            Console.WriteLine(magazine.Articles.Length);
-            magazine.AddArticles(ar);
-            Console.WriteLine(magazine.Articles.Length);
+            Console.WriteLine(magazine.Articles.Length); //
+            magazine.AddArticles(ar);                      // вывел кол-во статей в журнале 
+            Console.WriteLine(magazine.Articles.Length);//
             Console.WriteLine(magazine.ToFullString());
-           
+
         }
     }// Всё наверное
     public enum Frequency { Weekly, Monthly, Yearly }
@@ -33,7 +33,7 @@ namespace laba
     public class Article
     {
         public Person Author { get; }
-        
+
         public string Title { get; }
         public double Rating { get; }
 
@@ -75,6 +75,7 @@ namespace laba
             _release = new(2022, 10, 20, 20, 41, 23);
             _amountSells = 100232;
             _articles = new[] { new Article() };
+
         }
         public string Name => _name;
         public Frequency Frequency => _frequency;
@@ -92,25 +93,28 @@ namespace laba
                 return _articles.Sum(x => x.Rating) / _articles.Length;
             }
         }
-    public void AddArticles( Article[] ArticlesToAdd) // неправильно реализован public void AddArticles(params Article[] articles), он не добавляет статьи в массив, а перезаписывает его
+
+        
+        public void AddArticles(Article[] ArticlesToAdd) // неправильно реализован public void AddArticles(params Article[] articles), он не добавляет статьи в массив, а перезаписывает его
         {
-            //_articles = articles;
             int _OldSize = _articles.Length;
             Array.Resize(ref _articles, _OldSize + ArticlesToAdd.Length);
             ArticlesToAdd.CopyTo(_articles, _OldSize);
+           
         }
-       
 
-            public string ToFullString(bool isArticles = true)
-    {
+
+        public string ToFullString(bool isArticles = true)
+        {
             return $"Название журнала: {Name}\n Частота выпуска: {Frequency}\n Дата выпуска " +
-                $"{Release.ToLongDateString()}\n Кол-во продаж: {AmountSells}";
-         
-    }
-    public string ToShortString()
-    {
-        return $"{ToFullString(false)}\n" +
-            $"Средний рейтинг: {MiddleRating}";
-    }
+                $"{Release.ToLongDateString()}\n Кол-во продаж: {AmountSells}   ";
+            
+
+        }
+        public string ToShortString()
+        {
+            return $"{ToFullString(false)}\n" +
+                $"Средний рейтинг: {MiddleRating}";
+        }
     }
 }
