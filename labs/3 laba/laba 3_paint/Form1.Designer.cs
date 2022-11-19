@@ -35,7 +35,6 @@
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsPanel = new System.Windows.Forms.Panel();
             this.button12 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button3 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -51,6 +50,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.drawPanel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
@@ -110,10 +110,10 @@
             // 
             this.toolsPanel.AutoScroll = true;
             this.toolsPanel.Controls.Add(this.button12);
-            this.toolsPanel.Controls.Add(this.button4);
             this.toolsPanel.Controls.Add(this.flowLayoutPanel1);
             this.toolsPanel.Controls.Add(this.begunok);
             this.toolsPanel.Controls.Add(this.groupBox1);
+            this.toolsPanel.Controls.Add(this.button4);
             this.toolsPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.toolsPanel.Location = new System.Drawing.Point(0, 28);
             this.toolsPanel.Name = "toolsPanel";
@@ -122,27 +122,14 @@
             // 
             // button12
             // 
-            this.button12.Dock = System.Windows.Forms.DockStyle.Right;
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Location = new System.Drawing.Point(127, 287);
+            this.button12.Location = new System.Drawing.Point(143, 344);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(132, 39);
+            this.button12.Size = new System.Drawing.Size(107, 66);
             this.button12.TabIndex = 4;
             this.button12.Text = "Очистить";
             this.button12.UseVisualStyleBackColor = true;
             this.button12.Click += new System.EventHandler(this.button12_Click);
-            // 
-            // button4
-            // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(0, 287);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(127, 39);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Ластик";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -153,10 +140,9 @@
             this.flowLayoutPanel1.Controls.Add(this.button9);
             this.flowLayoutPanel1.Controls.Add(this.button10);
             this.flowLayoutPanel1.Controls.Add(this.button11);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 326);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 283);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(259, 75);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(244, 45);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // button3
@@ -228,8 +214,9 @@
             this.begunok.AutoSize = false;
             this.begunok.Dock = System.Windows.Forms.DockStyle.Top;
             this.begunok.Location = new System.Drawing.Point(0, 242);
+            this.begunok.Maximum = 100;
             this.begunok.Name = "begunok";
-            this.begunok.Size = new System.Drawing.Size(259, 45);
+            this.begunok.Size = new System.Drawing.Size(256, 45);
             this.begunok.TabIndex = 1;
             this.begunok.Scroll += new System.EventHandler(this.begunok_Scroll);
             // 
@@ -244,16 +231,17 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(259, 242);
+            this.groupBox1.Size = new System.Drawing.Size(256, 242);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Выбор кисти";
             // 
             // button14
             // 
-            this.button14.Location = new System.Drawing.Point(97, 151);
+            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button14.Location = new System.Drawing.Point(78, 143);
             this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(94, 29);
+            this.button14.Size = new System.Drawing.Size(90, 55);
             this.button14.TabIndex = 6;
             this.button14.Text = "снежинка ";
             this.button14.UseVisualStyleBackColor = true;
@@ -274,7 +262,7 @@
             // button6
             // 
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(0, 82);
+            this.button6.Location = new System.Drawing.Point(3, 82);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(107, 50);
             this.button6.TabIndex = 4;
@@ -285,7 +273,7 @@
             // button1
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(84, 26);
+            this.button1.Location = new System.Drawing.Point(152, 26);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 50);
             this.button1.TabIndex = 2;
@@ -307,13 +295,24 @@
             // button5
             // 
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(0, 138);
+            this.button5.Location = new System.Drawing.Point(142, 82);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(85, 55);
             this.button5.TabIndex = 4;
             this.button5.Text = "Клетка #";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button4
+            // 
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(18, 344);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(107, 66);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "Ластик";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // drawPanel
             // 

@@ -71,6 +71,7 @@ namespace laba_3_paint
         private void button1_Click(object sender, EventArgs e)
         {
             _selectedBrush = new QuadBrush(SelectedColor, SelectedSize);
+            
         }
         
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
@@ -93,6 +94,7 @@ namespace laba_3_paint
                 _selectedBrush.Draw(pictureBox1.Image as Bitmap, _x, _y);
                 pictureBox1.Refresh();
             }
+            this.Text = $"X = {e.X}, Y = {e.Y}";
         }
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -179,12 +181,11 @@ namespace laba_3_paint
         }
         void RefreshBrush()
         {
-            if (_selectedBrush != null)// думал что эта проверка поможет исправить измение размера кисти , а основной затык что я выбираю размера не выбрав кисти... 
+            if (_selectedBrush != null)
             {
-
+                _selectedBrush.Size = begunok.Value; // данная проверка предотвращает затык при задании размера кисти 
             }
-            _selectedBrush.Size = begunok.Value; 
-            
+
         }
 
         private void begunok_Scroll(object sender, EventArgs e)
@@ -267,6 +268,11 @@ namespace laba_3_paint
         private void button14_Click(object sender, EventArgs e)
         {
             _selectedBrush = new Snowflake(SelectedColor, SelectedSize);
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            colorDialog1.ShowDialog();
         }
     }
    
