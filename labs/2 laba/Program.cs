@@ -8,10 +8,12 @@ namespace laba
         {
             Article[] ar = { new Article(), new Article() }; // массив статей с 2-мя статьями 
             Magazine magazine = new Magazine();
-            Console.WriteLine(magazine.Articles.Length); //
-            magazine.AddArticles(ar);                      // вывел кол-во статей в журнале 
-            Console.WriteLine(magazine.Articles.Length);//
             Console.WriteLine(magazine.ToFullString());
+            Console.WriteLine($"Было статей:{magazine.Articles.Length}");                   //
+            magazine.AddArticles(ar);                                                       // вывел кол-во статей в журнале 
+            Console.WriteLine($"Стало статей после добавления: {magazine.Articles.Length}"); //
+            Console.WriteLine(magazine.ToFullString());
+            Console.WriteLine (magazine.ToShortString());
 
         }
     }// Всё наверное
@@ -52,7 +54,9 @@ namespace laba
         public string ToFullString()
         {
             return $"{Author.Name} {Author.Surname} - {Title}. Рейтинг: {Rating}"; // описание 
+            
         }
+       
     }
     public class Magazine
     {
@@ -102,19 +106,25 @@ namespace laba
             ArticlesToAdd.CopyTo(_articles, _OldSize);
            
         }
+        
 
+        public string ToFullString()
 
-        public string ToFullString(bool isArticles = true)
         {
-            return $"Название журнала: {Name}\n Частота выпуска: {Frequency}\n Дата выпуска " +
-                $"{Release.ToLongDateString()}\n Кол-во продаж: {AmountSells}   ";
             
+            return $"Название журнала: {Name}\n Частота выпуска: {Frequency}\n Дата выпуска " +
+                $"{Release.ToLongDateString()}\n Кол-во продаж: {AmountSells}  " ;
 
         }
         public string ToShortString()
         {
-            return $"{ToFullString(false)}\n" +
+            return $"{ToFullString()}\n" +
                 $"Средний рейтинг: {MiddleRating}";
         }
     }
 }
+
+// foreach (Article a in magazine.Articles) 
+// {
+//     Console.WriteLine(a.ToFullString());
+//}

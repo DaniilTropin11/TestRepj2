@@ -12,25 +12,16 @@ namespace laba_3_paint
         public override void Draw(Bitmap image, int x, int y)
         {
             for (int x0 = x - Size; x0 < x + Size; ++x0)
-
             {
-                image.SetPixel(x0,x0,BrushColor);
-                image.SetPixel(x0,Size-x0,BrushColor);
-                }    
+                image.SetPixel(x0, y - x + x0, BrushColor);       // \
+                image.SetPixel(x0, y + x - x0, BrushColor);       // /
+                image.SetPixel(x0, y, BrushColor);               // -
+                image.SetPixel(x, y - x + x0, BrushColor);        // |
                 
+               
+            }
 
-                    //image.SetPixel(x+1, y+1,  BrushColor );
-                    //image.SetPixel(x+2, y+2,  BrushColor );
-                    //image.SetPixel(x+3, y+3,  BrushColor );
-                    //image.SetPixel(x+4, y+4,  BrushColor );
-                    //image.SetPixel(x+5, y+5,  BrushColor );
-                    //image.SetPixel(x - 1, y - 1, BrushColor);
-                    //image.SetPixel(x - 2, y - 2, BrushColor);
-                    //image.SetPixel(x - 3, y - 3, BrushColor);
-                    //image.SetPixel(x - 4, y - 4, BrushColor);
-                    //image.SetPixel(x - 5, y - 5, BrushColor);
-                
-                }
+        }
                 
         }
     }
