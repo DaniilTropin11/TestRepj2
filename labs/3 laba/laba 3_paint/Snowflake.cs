@@ -11,9 +11,9 @@ namespace laba_3_paint
         public Snowflake(Color brushColor, int size) : base(brushColor, size) { }
         public override void Draw(Bitmap image, int x, int y)
         {
-                for (int x0 = - Size; x0 < Size; ++x0)
+            for (int x0 = x - Size; x0 < x + Size; ++x0)
 
-                {
+            {
                 image.SetPixel(x0,x0,BrushColor);
                 image.SetPixel(x0,Size-x0,BrushColor);
                 }    
