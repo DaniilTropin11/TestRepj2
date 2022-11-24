@@ -38,6 +38,8 @@ namespace laba_3_paint
             get { return begunok.Value; }
         }
         Brush _selectedBrush;
+        
+        
          
 
 
@@ -217,6 +219,8 @@ namespace laba_3_paint
         private void button7_Click(object sender, EventArgs e)
         {
             _selectedBrush.BrushColor = Color.Red;
+            
+            
 
         }
 

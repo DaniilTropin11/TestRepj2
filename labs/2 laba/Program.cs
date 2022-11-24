@@ -8,12 +8,11 @@ namespace laba
         {
             Article[] ar = { new Article(), new Article() }; // массив статей с 2-мя статьями 
             Magazine magazine = new Magazine();
-            Console.WriteLine(magazine.ToFullString());
-            Console.WriteLine($"Было статей:{magazine.Articles.Length}");                   //
+            Console.WriteLine($"Публикаций в журнале  :{magazine.Articles.Length} \n " );
+            Console.WriteLine(magazine.ToFullString());     //для формирования строки со значениями всех полей класса, включая список статей   
             magazine.AddArticles(ar);                                                       // вывел кол-во статей в журнале 
-            Console.WriteLine($"Стало статей после добавления: {magazine.Articles.Length}"); //
-            Console.WriteLine(magazine.ToFullString());
-            Console.WriteLine (magazine.ToShortString());
+            Console.WriteLine($" \n Кол-во статей в журнале : {magazine.Articles.Length}\n"); 
+            Console.WriteLine(magazine.ToShortString()); // который формирует строку со значениями всех полей класса без списка статей, но со значением среднего рейтинга статей.
 
         }
     }// Всё наверное
@@ -51,11 +50,11 @@ namespace laba
             Title = "УЧИМ ПРОГРАММИРОВАНИЕ";
             Rating = 10;
         }
-        public string ToFullString()
-        {
-            return $"{Author.Name} {Author.Surname} - {Title}. Рейтинг: {Rating}"; // описание 
+        //public string ToFullString()
+        //{
+        //    return $"{Author.Name} {Author.Surname} - {Title}. Рейтинг: {Rating}"; // описание 
             
-        }
+        //}
        
     }
     public class Magazine
@@ -99,7 +98,7 @@ namespace laba
         }
 
         
-        public void AddArticles(Article[] ArticlesToAdd) // неправильно реализован public void AddArticles(params Article[] articles), он не добавляет статьи в массив, а перезаписывает его
+        public void AddArticles(Article[] ArticlesToAdd) 
         {
             int _OldSize = _articles.Length;
             Array.Resize(ref _articles, _OldSize + ArticlesToAdd.Length);
@@ -113,13 +112,13 @@ namespace laba
         {
             
             return $"Название журнала: {Name}\n Частота выпуска: {Frequency}\n Дата выпуска " +
-                $"{Release.ToLongDateString()}\n Кол-во продаж: {AmountSells}  " ;
+                $"{Release.ToLongDateString()}\n Кол-во продаж: {AmountSells} \n Средний рейтинг статей : {MiddleRating}\n Статьи в журнале {Articles}\n  " ;
 
         }
         public string ToShortString()
         {
-            return $"{ToFullString()}\n" +
-                $"Средний рейтинг: {MiddleRating}";
+            return $" Название журнала :{Name}\n Частота выпуска:{Frequency}\n Дата выпуска:{Release.ToLongDateString()}\n Кол-во продаж:{AmountSells}\n" +
+                $"Средний рейтинг статей : {MiddleRating}";
         }
     }
 }
