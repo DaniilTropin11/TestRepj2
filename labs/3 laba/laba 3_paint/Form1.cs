@@ -208,6 +208,7 @@ namespace laba_3_paint
         private void button4_Click(object sender, EventArgs e)
         {
             _selectedBrush = new EraseBrush(SelectedColor, SelectedSize);
+            _selectedBrush.BrushColor = Color.White;
         }
 
         private void button5_Click(object sender, EventArgs e)
