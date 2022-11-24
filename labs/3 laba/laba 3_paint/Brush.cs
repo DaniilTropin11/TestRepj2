@@ -16,5 +16,13 @@ namespace laba_3_paint
             Size = size;
         }
        public abstract void Draw(Bitmap image, int x , int y);
+
+        protected void _draw(Bitmap image, int x, int y, Color c)
+        {
+            if (x < image.Width && x >= 0 && y < image.Height && y >= 0)
+            {
+                image.SetPixel(x, y, c);
+            }
+        }
     }
 }

@@ -32,6 +32,7 @@ namespace laba_3_paint
         Color SelectedColor
         {
             get { return colorDialog1.Color; }
+            set { colorDialog1.Color = value; }
         }
         int SelectedSize
         {
@@ -154,8 +155,11 @@ namespace laba_3_paint
         {
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
-             
+                SelectedColor = colorDialog1.Color;
                 button3.BackColor = colorDialog1.Color;
+                _selectedBrush.BrushColor = colorDialog1.Color;
+                //button3.BackColor = colorDialog1.Color;
+
 
             }
         }
@@ -218,29 +222,32 @@ namespace laba_3_paint
 
         private void button7_Click(object sender, EventArgs e)
         {
+            SelectedColor = Color.Red;
             _selectedBrush.BrushColor = Color.Red;
-            
-            
-
+         
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
+            SelectedColor = Color.Green;
             _selectedBrush.BrushColor = Color.Green;
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
+            SelectedColor = Color.Blue;
             _selectedBrush.BrushColor = Color.Blue;
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
+            SelectedColor = Color.Yellow;
             _selectedBrush.BrushColor = Color.Yellow;
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
+            SelectedColor = Color.Black;
             _selectedBrush.BrushColor = Color.Black;
         }
 

@@ -15,7 +15,7 @@ namespace laba_3_paint
             {
                 for (int x0 = x - Size; x0 < x + Size; ++x0)
                 {
-                    image.SetPixel(x0, y0, BrushColor);
+                    _draw(image, x0, y0, BrushColor);
                 }
             }
         }

@@ -13,14 +13,14 @@ namespace laba_3_paint
         {
             for (int x0 = x - (int)(Size * 0.7); x0 < x + Size * 0.7; ++x0) // закгругляю косые 
             {
-                image.SetPixel(x0, y - x + x0, BrushColor);       // сторона \ 
-                image.SetPixel(x0, y + x - x0, BrushColor);       // сторона  /
+                _draw(image, x0, y - x + x0, BrushColor);       // сторона \ 
+                _draw(image, x0, y + x - x0, BrushColor);       // сторона  /
                 
             }
             for (int x0 = x - Size; x0 < x + Size; ++x0)
             {
-                image.SetPixel(x0, y, BrushColor);               //  сторона -
-                image.SetPixel(x, y - x + x0, BrushColor);        // сторона |
+                _draw(image, x0, y, BrushColor);               //  сторона -
+                _draw(image, x, y - x + x0, BrushColor);        // сторона |
             }
 
         }

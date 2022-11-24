@@ -17,7 +17,7 @@ namespace laba_3_paint
                 {
                     if ((x0 - x) * (x0 - x) + (y0 - y) * (y0 - y) <= Size * Size)
                     {
-                        image.SetPixel(x0, y0, BrushColor);
+                        _draw(image, x0, y0, BrushColor);
                     }
 
                 }
