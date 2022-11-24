@@ -6,12 +6,17 @@ namespace laba
     {
         private static void Main() //+ в мейне по заданию больше действий нужно
         {
-            Article[] ar = { new Article(), new Article() }; // массив статей с 2-мя статьями 
+            Article[] ar = 
+            {
+                new Article(new Person("Иван", "Иванович"), "Проблемы населению в Африке ", 6),
+                new Article(new Person("Петр", "Петрович"), "Формула-1 победители", 8 )
+            };                                                                        // массив статей с 2-мя статьями 
             Magazine magazine = new Magazine();
-            Console.WriteLine($"Публикаций в журнале  :{magazine.Articles.Length} \n " );
-            Console.WriteLine(magazine.ToFullString());     //для формирования строки со значениями всех полей класса, включая список статей   
-            magazine.AddArticles(ar);                                                       // вывел кол-во статей в журнале 
-            Console.WriteLine($" \n Кол-во статей в журнале : {magazine.Articles.Length}\n"); 
+            //Console.WriteLine($"Публикаций в журнале  :{magazine.Articles.Length} \n ");
+            magazine.AddArticles(ar);
+            Console.WriteLine(magazine.ToFullString());
+            //magazine.AddArticles(ar);
+            //Console.WriteLine($" \n Кол-во статей в журнале : {magazine.Articles.Length}\n");
             Console.WriteLine(magazine.ToShortString()); // который формирует строку со значениями всех полей класса без списка статей, но со значением среднего рейтинга статей.
 
         }
@@ -50,12 +55,12 @@ namespace laba
             Title = "УЧИМ ПРОГРАММИРОВАНИЕ";
             Rating = 10;
         }
-        //public string ToFullString()
-        //{
-        //    return $"{Author.Name} {Author.Surname} - {Title}. Рейтинг: {Rating}"; // описание 
-            
-        //}
-       
+        public string ToFullString()
+        {
+            return $"{Author.Name} {Author.Surname} - {Title}. Рейтинг: {Rating}"; // описание 
+
+        }
+
     }
     public class Magazine
     {
@@ -97,22 +102,26 @@ namespace laba
             }
         }
 
-        
-        public void AddArticles(Article[] ArticlesToAdd) 
+
+        public void AddArticles(Article[] ArticlesToAdd)
         {
             int _OldSize = _articles.Length;
             Array.Resize(ref _articles, _OldSize + ArticlesToAdd.Length);
             ArticlesToAdd.CopyTo(_articles, _OldSize);
-           
+
         }
-        
+
 
         public string ToFullString()
 
         {
-            
-            return $"Название журнала: {Name}\n Частота выпуска: {Frequency}\n Дата выпуска " +
-                $"{Release.ToLongDateString()}\n Кол-во продаж: {AmountSells} \n Средний рейтинг статей : {MiddleRating}\n Статьи в журнале {Articles}\n  " ;
+            string articles = "";
+            foreach (Article a in this.Articles)
+            {
+                articles += a.ToFullString() + '\n';
+            }
+            return  $"Название журнала: {Name}\n Частота выпуска: {Frequency}\n Дата выпуска " +
+           $"{Release.ToLongDateString()}\n Кол-во продаж: {AmountSells} \n  Статьи в журнале:\n{articles}";
 
         }
         public string ToShortString()
