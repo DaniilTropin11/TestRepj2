@@ -291,6 +291,11 @@ namespace laba_3_paint
         {
             _selectedBrush = new FlowerBrush(SelectedColor, SelectedSize);
         }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            _selectedBrush = new linia(SelectedColor, SelectedSize);
+        }
     }
    
 }
