@@ -286,6 +286,11 @@ namespace laba_3_paint
         {
             colorDialog1.ShowDialog();
         }
+
+        private void button13_Click_1(object sender, EventArgs e)
+        {
+            _selectedBrush = new FlowerBrush(SelectedColor, SelectedSize);
+        }
     }
    
 }

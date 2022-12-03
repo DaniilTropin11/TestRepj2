@@ -55,6 +55,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.button13 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.toolsPanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -222,6 +223,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button13);
             this.groupBox1.Controls.Add(this.button14);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.button6);
@@ -239,7 +241,7 @@
             // button14
             // 
             this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Location = new System.Drawing.Point(78, 143);
+            this.button14.Location = new System.Drawing.Point(6, 149);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(90, 55);
             this.button14.TabIndex = 6;
@@ -335,6 +337,16 @@
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(125, 149);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(94, 55);
+            this.button13.TabIndex = 7;
+            this.button13.Text = "Цветок ";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -390,5 +402,6 @@
         private Button button12;
         private SaveFileDialog saveFileDialog1;
         private Button button14;
+        private Button button13;
     }
 }
