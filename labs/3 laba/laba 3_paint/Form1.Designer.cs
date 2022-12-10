@@ -44,6 +44,7 @@
             this.button11 = new System.Windows.Forms.Button();
             this.begunok = new System.Windows.Forms.TrackBar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button15 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,7 +57,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.button15 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.toolsPanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -240,11 +240,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Выбор кисти";
             // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(143, 199);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(94, 29);
+            this.button15.TabIndex = 3;
+            this.button15.Text = "button15";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
             // button13
             // 
-            this.button13.Location = new System.Drawing.Point(89, 138);
+            this.button13.Location = new System.Drawing.Point(142, 143);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(94, 55);
+            this.button13.Size = new System.Drawing.Size(85, 55);
             this.button13.TabIndex = 7;
             this.button13.Text = "Цветок ";
             this.button13.UseVisualStyleBackColor = true;
@@ -348,16 +358,6 @@
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
-            // 
-            // button15
-            // 
-            this.button15.Location = new System.Drawing.Point(143, 199);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(94, 29);
-            this.button15.TabIndex = 3;
-            this.button15.Text = "button15";
-            this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // Form1
             // 

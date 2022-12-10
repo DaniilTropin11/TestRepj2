@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+
 namespace laba
 
 {
@@ -8,9 +10,12 @@ namespace laba
         {
             Article[] ar = 
             {
-                new Article(new Person("Иван", "Иванович"), "Проблемы населению в Африке ", 6),
-                new Article(new Person("Петр", "Петрович"), "Формула-1 победители", 8 )
-            };                                                                        // массив статей с 2-мя статьями 
+                new Article(new Person("Ivanov", "Ivan" , new DateTime (22.12.2001)),
+                new Article(new Person()))
+            };
+            // массив статей с 2-мя статьями 
+            Person p = new Person();
+            p.Firstname= "gggg";
             Magazine magazine = new Magazine();
             //Console.WriteLine($"Публикаций в журнале  :{magazine.Articles.Length} \n ");
             magazine.AddArticles(ar);
@@ -23,25 +28,61 @@ namespace laba
     }// Всё наверное
     public enum Frequency { Weekly, Monthly, Yearly }
 
-    public class Person
+     public class Person
     {
-        public string Name { get; }
-        public string Surname { get; }
+        private string _firstname;
+        private string _lastname;
+        private System.DateTime _dateOfBirth;
 
-        public Person(string name, string surname)
+        public Person(string name, string lname, DateTime dob)
         {
-            Name = name;
-            Surname = surname;
+            if (name.Trim().Length > 0)
+                _firstname = name;
+            else
+                _firstname = "Ivan";
+            if (lname.Trim().Length > 0)
+                _lastname = lname;
+            else
+                _lastname = "Ivanov";
+            if (dob.Year > 1990)
+                _dateOfBirth = dob;
+            else
+                _dateOfBirth = new DateTime(2000, 1, 1);
         }
-        public string FullName => $"{Surname} {Name}";
-
+        public Person()
+        {
+            _firstname = "Ivan";
+            _lastname = "Ivanov";
+            _dateOfBirth = new DateTime(2003, 6, 20);
+        }
+        public string Firstname
+        {
+            get { return _firstname; }
+            set { _firstname = value; }
+        }
+        public string Lastname
+        {
+            get { return _lastname; }
+            set { _lastname = value; }
+        }
+        public DateTime DateOfBirth
+        {
+            get { return _dateOfBirth; }
+            set { _dateOfBirth = value; }
+        }
+        private int YearOfBirth
+        {
+            get { return _dateOfBirth.Year; }
+            set { _dateOfBirth = new DateTime(value, _dateOfBirth.Month, _dateOfBirth.Day);}
+        }        
     }
+
     public class Article
     {
-        public Person Author { get; }
+        public Person Author { get; set; }
 
-        public string Title { get; }
-        public double Rating { get; }
+        public string Title { get; set;  }
+        public double Rating { get; set;  }
 
         public Article(Person author, string title, double rating)
         {
@@ -51,13 +92,13 @@ namespace laba
         }
         public Article()
         {
-            Author = new("Даниил", "Тропин");
+            Author = new("Даниил", "Тропин" , new DateTime (2001, 12, 22) );
             Title = "УЧИМ ПРОГРАММИРОВАНИЕ";
             Rating = 10;
         }
         public string ToFullString()
         {
-            return $"{Author.Name} {Author.Surname} - {Title}. Рейтинг: {Rating}"; // описание 
+            return $"{Author.Firstname} {Author.Lastname} - {Title}. Рейтинг: {Rating}"; // описание 
 
         }
 
@@ -121,7 +162,7 @@ namespace laba
                 articles += a.ToFullString() + '\n';
             }
             return  $"Название журнала: {Name}\n Частота выпуска: {Frequency}\n Дата выпуска " +
-           $"{Release.ToLongDateString()}\n Кол-во продаж: {AmountSells} \n  Статьи в журнале:\n{articles}";
+           $"{Release.ToLongDateString()}\n Кол-во продаж: {AmountSells} \n Статьи в журнале:\n{articles}";
 
         }
         public string ToShortString()
@@ -132,7 +173,3 @@ namespace laba
     }
 }
 
-// foreach (Article a in magazine.Articles) 
-// {
-//     Console.WriteLine(a.ToFullString());
-//}
