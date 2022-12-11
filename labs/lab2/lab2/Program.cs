@@ -8,14 +8,18 @@ namespace laba
     {
         private static void Main() //+ в мейне по заданию больше действий нужно
         {
-            Article[] ar = 
+            Article[] ar =
             {
-                new Article(new Person("Ivanov", "Ivan" , new DateTime (22.12.2001)),
-                new Article(new Person()))
+              new Article(new Person ("Ivan","Ivanov", new DateTime (2003,6,20)), "Life of Knife", 10)
             };
-            // массив статей с 2-мя статьями 
-            Person p = new Person();
-            p.Firstname= "gggg";
+             Person person = new Person();
+            Console.WriteLine(person.ToShortString());
+            Console.WriteLine(person.ToFullString());
+            //Person p = new Person();
+            //p.Firstname= "gggg";
+            //p.Lastname = "asdasd";
+            //p.DateOfBirth = new DateTime (2001,22,12);
+      
             Magazine magazine = new Magazine();
             //Console.WriteLine($"Публикаций в журнале  :{magazine.Articles.Length} \n ");
             magazine.AddArticles(ar);
@@ -74,8 +78,19 @@ namespace laba
         {
             get { return _dateOfBirth.Year; }
             set { _dateOfBirth = new DateTime(value, _dateOfBirth.Month, _dateOfBirth.Day);}
-        }        
+        }
+
+        public string ToFullString()
+        {
+            return "Имя" + _firstname + "\n" + "Фамилия" + _lastname + "\n" + "Дата рождения" + _dateOfBirth.ToLongDateString();
+        }
+        public string ToShortString()
+        {
+            return "Имя" + _firstname + "\n" + "Фамилия" + _lastname ;
+        }
     }
+
+
 
     public class Article
     {
@@ -126,11 +141,11 @@ namespace laba
             _articles = new[] { new Article() };
 
         }
-        public string Name => _name;
-        public Frequency Frequency => _frequency;
-        public DateTime Release => _release;
-        public int AmountSells => _amountSells;
-        public Article[] Articles => _articles;
+        public string Name { get; set; }
+        public Frequency Frequency { get; set; }
+        public DateTime Release { get; set; }
+        public int AmountSells { get; set; }
+        public Article[] Articles { get; set; }
         public double? MiddleRating
         {
             get
