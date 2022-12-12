@@ -8,25 +8,17 @@ namespace laba
     {
         private static void Main() //+ в мейне по заданию больше действий нужно
         {
-            Article[] ar =
-            {
-              new Article(new Person ("Ivan","Ivanov", new DateTime (2003,6,20)), "Life of Knife", 10)
-            };
-             Person person = new Person();
-            Console.WriteLine(person.ToShortString());
-            Console.WriteLine(person.ToFullString());
-            //Person p = new Person();
-            //p.Firstname= "gggg";
-            //p.Lastname = "asdasd";
-            //p.DateOfBirth = new DateTime (2001,22,12);
-      
-            Magazine magazine = new Magazine();
-            //Console.WriteLine($"Публикаций в журнале  :{magazine.Articles.Length} \n ");
-            magazine.AddArticles(ar);
-            Console.WriteLine(magazine.ToFullString());
-            //magazine.AddArticles(ar);
-            //Console.WriteLine($" \n Кол-во статей в журнале : {magazine.Articles.Length}\n");
-            Console.WriteLine(magazine.ToShortString()); // который формирует строку со значениями всех полей класса без списка статей, но со значением среднего рейтинга статей.
+            var Author = new Person("Андрей", "Петров", new DateTime(2022, 10, 20));
+            var magaz = new Magazine("Охота и рыбалка", Frequency.Monthly, new DateTime(2022, 12, 14), 1);
+            magaz.AddArticles(new[] { new Article() });
+            Console.WriteLine(magaz.ToShortString());
+            magaz.Name = "Охота без рыбалки";
+            magaz.Frequency = Frequency.Yearly;
+            magaz.AmountSells++;
+            magaz.Release = new DateTime(2022, 12, 2);
+            Console.WriteLine(magaz.ToString());
+            magaz.AddArticles(new Article[] { new Article(Author, "История Сибири", 6) });
+            Console.WriteLine(magaz.ToFullString());
 
         }
     }// Всё наверное
@@ -120,10 +112,10 @@ namespace laba
     }
     public class Magazine
     {
-        private readonly string _name;
-        private readonly Frequency _frequency;
-        private readonly DateTime _release;
-        private readonly int _amountSells;
+        private  string _name;
+        private  Frequency _frequency;
+        private  DateTime _release;
+        private  int _amountSells;
         private Article[] _articles;
         public Magazine(string name, Frequency frequency, DateTime release, int amountSells)
         {
@@ -138,33 +130,39 @@ namespace laba
             _frequency = Frequency.Weekly;
             _release = new(2022, 10, 20, 20, 41, 23);
             _amountSells = 100232;
-            _articles = new[] { new Article() };
+            Articles = new[] { new Article() };
 
         }
         public string Name { get; set; }
         public Frequency Frequency { get; set; }
         public DateTime Release { get; set; }
         public int AmountSells { get; set; }
-        public Article[] Articles { get; set; }
+        public Article[] Articles { get { return _articles; } set { _articles = value; } }
         public double? MiddleRating
         {
             get
             {
-                if (_articles is null)
+                if (Articles is null)
                 {
                     return null;
                 }
-                return _articles.Sum(x => x.Rating) / _articles.Length;
+                return Articles.Sum(x => x.Rating) / Articles.Length;
             }
         }
 
 
         public void AddArticles(Article[] ArticlesToAdd)
         {
-            int _OldSize = _articles.Length;
-            Array.Resize(ref _articles, _OldSize + ArticlesToAdd.Length);
-            ArticlesToAdd.CopyTo(_articles, _OldSize);
-
+            if (Articles == null) // Если в журнале еще нет статей, то мы сразу их добавим
+            {
+                Articles = ArticlesToAdd;
+            }
+            else // Иначе мы расширим массив и добавим статьи туда
+            {
+                int _OldSize = Articles.Length;
+                Array.Resize(ref _articles, _OldSize + ArticlesToAdd.Length);
+                ArticlesToAdd.CopyTo(Articles, _OldSize);
+            }
         }
 
 
@@ -172,7 +170,7 @@ namespace laba
 
         {
             string articles = "";
-            foreach (Article a in this.Articles)
+            foreach (Article a in Articles)
             {
                 articles += a.ToFullString() + '\n';
             }
@@ -184,6 +182,11 @@ namespace laba
         {
             return $" Название журнала :{Name}\n Частота выпуска:{Frequency}\n Дата выпуска:{Release.ToLongDateString()}\n Кол-во продаж:{AmountSells}\n" +
                 $"Средний рейтинг статей : {MiddleRating}";
+        }
+
+        public override string ToString()
+        {
+            return ToFullString() + $"\nСредний рейтинг:{MiddleRating}";
         }
     }
 }
