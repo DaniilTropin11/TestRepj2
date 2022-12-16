@@ -44,7 +44,6 @@
             this.button11 = new System.Windows.Forms.Button();
             this.begunok = new System.Windows.Forms.TrackBar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button15 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -224,7 +223,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button15);
             this.groupBox1.Controls.Add(this.button13);
             this.groupBox1.Controls.Add(this.button14);
             this.groupBox1.Controls.Add(this.label1);
@@ -240,21 +238,12 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Выбор кисти";
             // 
-            // button15
-            // 
-            this.button15.Location = new System.Drawing.Point(143, 199);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(94, 29);
-            this.button15.TabIndex = 3;
-            this.button15.Text = "button15";
-            this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
-            // 
             // button13
             // 
-            this.button13.Location = new System.Drawing.Point(142, 143);
+            this.button13.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button13.Location = new System.Drawing.Point(125, 143);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(85, 55);
+            this.button13.Size = new System.Drawing.Size(102, 55);
             this.button13.TabIndex = 7;
             this.button13.Text = "Цветок ";
             this.button13.UseVisualStyleBackColor = true;
@@ -263,9 +252,9 @@
             // button14
             // 
             this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Location = new System.Drawing.Point(6, 149);
+            this.button14.Location = new System.Drawing.Point(3, 138);
             this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(90, 55);
+            this.button14.Size = new System.Drawing.Size(107, 55);
             this.button14.TabIndex = 6;
             this.button14.Text = "снежинка ";
             this.button14.UseVisualStyleBackColor = true;
@@ -297,9 +286,9 @@
             // button1
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(152, 26);
+            this.button1.Location = new System.Drawing.Point(125, 26);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 50);
+            this.button1.Size = new System.Drawing.Size(102, 50);
             this.button1.TabIndex = 2;
             this.button1.Text = "Квадрат";
             this.button1.UseVisualStyleBackColor = true;
@@ -310,7 +299,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Location = new System.Drawing.Point(3, 26);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 50);
+            this.button2.Size = new System.Drawing.Size(107, 50);
             this.button2.TabIndex = 3;
             this.button2.Text = "Круг";
             this.button2.UseVisualStyleBackColor = true;
@@ -319,9 +308,9 @@
             // button5
             // 
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(142, 82);
+            this.button5.Location = new System.Drawing.Point(125, 82);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(85, 55);
+            this.button5.Size = new System.Drawing.Size(102, 55);
             this.button5.TabIndex = 4;
             this.button5.Text = "Клетка #";
             this.button5.UseVisualStyleBackColor = true;
@@ -415,6 +404,5 @@
         private SaveFileDialog saveFileDialog1;
         private Button button14;
         private Button button13;
-        private Button button15;
     }
 }

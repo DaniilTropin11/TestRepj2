@@ -23,8 +23,8 @@ namespace lab5
             {
                 for (int i = 0; i < input.Length; ++i)
                 {
-                    if (kvp.Value.IsMatch(input[i]))
-                        System.Console.WriteLine($"Регулярка {kvp.Key}: {input[i]}\nСтрока:{i + 1}");
+                    //if (kvp.Value.IsMatch(input[i]))
+                    //    System.Console.WriteLine($"Регулярка {kvp.Key}: {input[i]}\nСтрока:{i + 1}");
 
 
                 }

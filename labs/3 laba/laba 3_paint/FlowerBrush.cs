@@ -20,7 +20,7 @@ namespace laba_3_paint
             for (double n = 0; n < 2 * Math.PI; n += t)
             {
 
-                R = a * Math.Sin(16 * n);
+                R = a * Math.Sin( 8* n);
                 y0 = (int)(y + Math.Sin(n) * R);
                 x0 = (int)(x + Math.Cos(n) * R);
 
