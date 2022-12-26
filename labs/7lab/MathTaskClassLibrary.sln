@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathTaskClassLibrary", "Mat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{2544E51A-A0FA-4480-B1D6-F24E67DBFC14}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "5laba", "..\5laba\5laba\5laba.csproj", "{D7E5B010-8ABC-4B33-A4E6-79078817607B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{6367FA38-6314-4039-BAEA-A4AEFC131C50}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{2544E51A-A0FA-4480-B1D6-F24E67DBFC14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2544E51A-A0FA-4480-B1D6-F24E67DBFC14}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2544E51A-A0FA-4480-B1D6-F24E67DBFC14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7E5B010-8ABC-4B33-A4E6-79078817607B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7E5B010-8ABC-4B33-A4E6-79078817607B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7E5B010-8ABC-4B33-A4E6-79078817607B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7E5B010-8ABC-4B33-A4E6-79078817607B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6367FA38-6314-4039-BAEA-A4AEFC131C50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6367FA38-6314-4039-BAEA-A4AEFC131C50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6367FA38-6314-4039-BAEA-A4AEFC131C50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6367FA38-6314-4039-BAEA-A4AEFC131C50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

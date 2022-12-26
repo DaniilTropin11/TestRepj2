@@ -55,12 +55,17 @@
     <Compile Include="Task2Test.cs" />
     <Compile Include="Task3Test.cs" />
     <Compile Include="Task4Test.cs" />
+    <Compile Include="Task5Test - Копировать.cs" />
     <Compile Include="Task5Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\5laba\5laba\5laba.csproj">
+      <Project>{d7e5b010-8abc-4b33-a4e6-79078817607b}</Project>
+      <Name>5laba</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MathTaskClassLibrary\MathTaskClassLibrary.csproj">
       <Project>{76F36E44-94DE-4C08-B3DE-D2D8F4056967}</Project>
       <Name>MathTaskClassLibrary</Name>

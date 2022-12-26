@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MathTaskClassLibrary
 {
-    public class Task4
+    public class Task4// по заданию в методичке 
     {
         public bool task4(string input)
         {
