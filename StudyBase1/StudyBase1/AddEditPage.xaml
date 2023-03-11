@@ -1,0 +1,38 @@
+﻿<Page x:Class="StudyBase1.AddEditPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:StudyBase1"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddEditPage" Width="500">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="57*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text=" Имя студента ">  </TextBlock>
+        <TextBlock Text=" Дисциплина " Grid.Row="1"></TextBlock>
+        <TextBlock Text=" Оценка " Grid.Row="2"></TextBlock>
+        <TextBlock Text=" Дата сдачи " Grid.Row="3"></TextBlock>
+        <TextBox Text="{Binding Name}" Grid.Column="1"> </TextBox>
+        <TextBox Text="{Binding Discipline}" Grid.Column="1" Grid.Row =" 1 " Width="1500" HorizontalAlignment="Left"> </TextBox>
+        <ComboBox  SelectedItem="{Binding Ocenka}" Grid.Row="2" Grid.Column="1" x:Name="ComboOcenka" DisplayMemberPath="Название"> </ComboBox>
+        <DatePicker SelectedDate="{Binding DataChacha}" Grid.Row="3" Grid.Column="1" x:Name="ComboData"/>
+
+        <Button Content="Сохранить" Grid.Column="1" Grid.Row="5" Name="BtnSave" Click="BtnSave_Click"></Button>
+
+
+
+    </Grid>
+</Page>
