@@ -15,7 +15,7 @@
         <Grid Background="Azure"></Grid>
         <TextBlock Text="Данные об успеваемости" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
         <Grid Grid.Row="2" Background="Azure"></Grid>
-        <Frame ContentRendered="MainFrame_ContentRendered" Grid.Row="1" Name="MainFrame"></Frame>
+        <Frame NavigationUIVisibility="Hidden" ContentRendered="MainFrame_ContentRendered" Grid.Row="1" Name="MainFrame"></Frame>
         <Button Content="Back" Name="BtnBack" Width="175" Height="30" HorizontalAlignment="Right" Margin="5" Click="BtnBack_Click"> </Button>
 
 
