@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace studybaselaba1
@@ -17,11 +18,16 @@ namespace studybaselaba1
     /// <summary>
     /// Логика взаимодействия для BasePage.xaml
     /// </summary>
-    public partial class BasePage : Window
+    public partial class BasePage : Page
     {
         public BasePage()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Admin.MainFrame.Navigate(new AddEditPage());
         }
     }
 }

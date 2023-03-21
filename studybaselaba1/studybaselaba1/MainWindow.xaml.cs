@@ -24,14 +24,32 @@ namespace studybaselaba1
         {
             InitializeComponent();
             MainFrame.Navigate(new BasePage());
-         
+            Admin.MainFrame = MainFrame;
+            
+          
+        }
 
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            Admin.MainFrame.GoBack();
 
+        }
+
+        private void MainFrame_ContentRendered(object sender, EventArgs e)
+        {
+            if (MainFrame.CanGoBack)
+            {
+                BtnBack.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                BtnBack.Visibility = Visibility.Hidden;
+            }
         }
 
         //private void Window_Loaded(object sender, RoutedEventArgs e)
         //{
-                   
+
         //}
     }
 }
