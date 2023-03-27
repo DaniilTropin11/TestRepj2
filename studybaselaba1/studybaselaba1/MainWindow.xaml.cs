@@ -56,7 +56,7 @@ namespace studybaselaba1
             {
                 var Group = new Group()
                 {
-                    Number = "PIB-11",
+                    NumberGroup = "PIB-11",
                     EducationForm = "очная",
  
                 };
