@@ -23,11 +23,17 @@ namespace studybaselaba1
         public BasePage()
         {
             InitializeComponent();
+            DGridBase.ItemsSource = StudyContext.GetContext().Groups.ToList();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Admin.MainFrame.Navigate(new AddEditPage());
+        }
+
+        private void BtnEdit_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
