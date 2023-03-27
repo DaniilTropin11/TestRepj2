@@ -1,5 +1,7 @@
-﻿using System;
+﻿using studybaselaba1.DataModel;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,9 +49,21 @@ namespace studybaselaba1
             }
         }
 
-        //private void Window_Loaded(object sender, RoutedEventArgs e)
-        //{
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            StudyContext studyContext = new StudyContext();
+            if (studyContext.Groups.Any() == false) //бд пустая 
+            {
+                var Group = new Group()
+                {
+                    Number = "PIB-11",
+                    EducationForm = "очная",
+ 
+                };
+                studyContext.Groups.Add (Group);
+                studyContext.SaveChanges();
 
-        //}
+            }
+        }
     }
 }

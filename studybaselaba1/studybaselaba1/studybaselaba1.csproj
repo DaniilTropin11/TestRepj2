@@ -71,12 +71,9 @@
     <Compile Include="BasePage.xaml.cs">
       <DependentUpon>BasePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataModel\Cdacha.cs" />
     <Compile Include="DataModel\Discipline.cs" />
     <Compile Include="DataModel\Fakultet.cs" />
-    <Compile Include="DataModel\FormaObychenia.cs" />
     <Compile Include="DataModel\Group.cs" />
-    <Compile Include="DataModel\Ocenki.cs" />
     <Compile Include="DataModel\StudyContext.cs" />
     <Page Include="AddEditPage.xaml">
       <SubType>Designer</SubType>

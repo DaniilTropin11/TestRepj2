@@ -2,6 +2,7 @@
 using System;
 using System.Data.Entity;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace studybaselaba1
 {
@@ -20,13 +21,10 @@ namespace studybaselaba1
                 _context = new StudyContext();
             return _context;
         }
-        public DbSet<Group> Groups { get; set; }
-        public DbSet<FormaObychenia> FormaObychenias { get; set; }
-        public DbSet<Fakultet> Fakultets { get; set; }
+        public DbSet <Fakultet> Faculties { get; set; }
+        public DbSet <Group> Groups { get; set; }
         public DbSet <Discipline> Disciplines { get; set; }
-        public DbSet<Ocenki> Ocenkis { get; set; }
-        public DbSet<Cdacha> Cdachas { get; set; }
-  
+
        
     }
 
