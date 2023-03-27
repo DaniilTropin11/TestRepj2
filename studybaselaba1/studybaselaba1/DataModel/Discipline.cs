@@ -1,15 +1,15 @@
-﻿using System;
+﻿using studybaselaba1.DataModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace studybaselaba1
 {
       public class Discipline
     {
-        public int IdDiscipline { get; set; }
+        public int DisciplineId { get; set; }
         public string NameDiscipline { get; set; }
         public DateTime ExamDate { get; set; }
         public int Count5 { get; set; }

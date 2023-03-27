@@ -8,12 +8,12 @@ namespace studybaselaba1.DataModel
 {
      public class Group
     {
-        public int IdGroup { get; set; }
+        public int GroupId { get; set; }
         public string NumberGroup { get; set; }
         public string EducationForm { get; set; }
         public ICollection<Discipline> Disciplines { get; set; }
 
-        
+
 
     }
 }

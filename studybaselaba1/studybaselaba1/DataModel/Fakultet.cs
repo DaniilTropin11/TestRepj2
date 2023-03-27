@@ -8,7 +8,7 @@ namespace studybaselaba1.DataModel
 {
     public  class Fakultet
     {
-         public int IdFakultet { get; set; }
+         public int FakultetId { get; set; }
         public string NameFakultet { get; set; }
         
         public ICollection<Group> Groups { get; set; }
