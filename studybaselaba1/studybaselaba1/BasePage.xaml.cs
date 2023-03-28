@@ -23,6 +23,7 @@ namespace studybaselaba1
         public BasePage()
         {
             InitializeComponent();
+            
             DGridBase.ItemsSource = StudyContext.GetContext().Groups.ToList();
         }
 
@@ -32,6 +33,11 @@ namespace studybaselaba1
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DGridBase_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

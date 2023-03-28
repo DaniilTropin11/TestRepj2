@@ -54,16 +54,31 @@ namespace studybaselaba1
             StudyContext studyContext = new StudyContext();
             if (studyContext.Groups.Any() == false) //бд пустая 
             {
-                var Group = new Group()
+                var group1= new Group()
                 {
-                    NumberGroup = "PIB-11",
-                    EducationForm = "очная",
- 
+                    NumberGroup ="пиб-11 ",
+                    
+         
+
                 };
-                studyContext.Groups.Add (Group);
+
+                studyContext.Groups.Add (group1);
                 studyContext.SaveChanges();
 
+                var disciplines = new Discipline()
+                {
+                    NameDiscipline = "Программирование",
+                    IsAbsent = 0, Count2 = 2, Count3 = 3, Count4 = 4, Count5 = 5,
+                    ExamDate = DateTime.Now,
+                   
+                    
+
+                };
+
+                studyContext.Disciplines.Add(disciplines);
+                studyContext.SaveChanges();
             }
         }
     }
 }
+
