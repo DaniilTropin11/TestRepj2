@@ -41,5 +41,15 @@ namespace studybaselaba1
         {
 
         }
+
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            Admin.MainFrame.Navigate(new AddEditPage());
+        }
+
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

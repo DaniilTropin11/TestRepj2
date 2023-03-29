@@ -9,7 +9,40 @@
       Title="AddEditPage">
 
     <Grid>
-        <TextBlock Text="Тут будет база в будущем" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"></TextBlock>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250*"/>
+            <ColumnDefinition Width="543*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Название группы" Grid.Row="0"></TextBlock>
+        <TextBlock Text="Название дисциплины" Grid.Row="1"></TextBlock>
+        <TextBlock Text="Дата сдачи" Grid.Row="2"></TextBlock>
+        <TextBlock Text="Кол-во 5" Grid.Row="3"></TextBlock>
+        <TextBlock Text="Кол-во 4" Grid.Row="4"></TextBlock>
+        <TextBlock Text="Кол-во 3" Grid.Row="5"></TextBlock>
+        <TextBlock Text="Кол-во недопущенных" Grid.Row="6 "></TextBlock>
+
+        <ComboBox SelectedItem="{Binding NumberGroup}" Grid.Row="0" Grid.Column="1" x:Name="ComboNameGroup" DisplayMemberPath="NumberGroup"></ComboBox>
+        <ComboBox SelectedItem="{Binding NameDiscipline }" Grid.Row="1" Grid.Column="2" x:Name="ComboNameDiscipline" DisplayMemberPath="NameDiscipline"> </ComboBox>
+        <DatePicker SelectedDate="{Binding ExamDate}" Grid.Row="2" Grid.Column="3" x:Name="ComboData"/>
+        <TextBox Text="{Binding Count5}" Grid.Row="3" Grid.Column="4" ></TextBox>
+        <TextBox Text="{Binding Count4}" Grid.Row="4" Grid.Column="5" ></TextBox>
+        <TextBox Text="{Binding Count3}" Grid.Row="5" Grid.Column="6" ></TextBox>
+        <TextBox Text="{Binding IsAbsent}"  Grid.Row="6" Grid.Column="7" ></TextBox>
+
+        <Button Content="Сохранить" Grid.Column="8" Grid.Row="9" Name="BtnSave" Click="BtnSave_Click"></Button>
+
+
+
 
     </Grid>
 </Page>
