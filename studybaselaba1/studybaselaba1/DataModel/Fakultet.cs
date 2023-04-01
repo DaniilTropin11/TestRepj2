@@ -13,5 +13,9 @@ namespace studybaselaba1.DataModel
         
         
         public ICollection<Group> Groups { get; set; }
+        public Fakultet()
+        {
+            Groups = new List<Group>();
+        }
     }
 }

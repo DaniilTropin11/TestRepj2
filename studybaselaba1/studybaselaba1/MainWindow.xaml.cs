@@ -68,8 +68,6 @@ namespace studybaselaba1
                 var disciplines = new Discipline()
                 {
                     NameDiscipline = "Программирование",
-                    IsAbsent = 0, Count2 = 2, Count3 = 3, Count4 = 4, Count5 = 5,
-                    ExamDate = DateTime.Now,
                    
                     
 
@@ -77,6 +75,8 @@ namespace studybaselaba1
 
                 studyContext.Disciplines.Add(disciplines);
                 studyContext.SaveChanges();
+
+                
             }
         }
     }

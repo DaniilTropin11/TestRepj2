@@ -11,14 +11,9 @@ namespace studybaselaba1
     {
         public int DisciplineId { get; set; }
         public string NameDiscipline { get; set; }
-        public DateTime ExamDate { get; set; }
-        public int Count5 { get; set; }
-        public int Count4{ get; set; }
-        public int Count3 { get; set; }
-        public int Count2 { get; set; }
-
-        public int IsAbsent { get; set; }
+       
         public virtual ICollection <Group> Groups { get; set; }
+        public ICollection<Ocenka> Ocenkas { get; set; }
 
 
     }

@@ -33,11 +33,11 @@ namespace studybaselaba1
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            StringBuilder errors = new StringBuilder();
-            if (string.IsNullOrWhiteSpace(_currentGroup.NumberGroup))
-                errors.AppendLine("Выберите название группы");
-            if (string.IsNullOrWhiteSpace(_currentGroup.Disciplines))
-                errors.AppendLine("Выюерите дисциплину");
+            //StringBuilder errors = new StringBuilder();
+            //if (string.IsNullOrWhiteSpace(_currentGroup.NumberGroup))
+            //    errors.AppendLine("Выберите название группы");
+            //if (string.IsNullOrWhiteSpace(_currentGroup.Disciplines))
+            //    errors.AppendLine("Выюерите дисциплину");
         }
     }
 }
