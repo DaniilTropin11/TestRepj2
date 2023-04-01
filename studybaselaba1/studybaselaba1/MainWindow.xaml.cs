@@ -67,7 +67,11 @@ namespace studybaselaba1
 
                 var disciplines = new Discipline()
                 {
-                    NameDiscipline = "Программирование",
+                    NameDiscipline = "Программирование"
+                    
+                   
+                    
+
                    
                     
 

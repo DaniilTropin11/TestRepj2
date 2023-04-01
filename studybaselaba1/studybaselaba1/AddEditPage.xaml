@@ -31,13 +31,14 @@
         <TextBlock Text="Кол-во 3" Grid.Row="5"></TextBlock>
         <TextBlock Text="Кол-во недопущенных" Grid.Row="6 "></TextBlock>
 
-        <ComboBox SelectedItem="{Binding NumberGroup}" Grid.Row="0" Grid.Column="1" x:Name="ComboNameGroup" DisplayMemberPath="NumberGroup"></ComboBox>
-        <ComboBox SelectedItem="{Binding NameDiscipline }" Grid.Row="1" Grid.Column="2" x:Name="ComboNameDiscipline" DisplayMemberPath="NameDiscipline"> </ComboBox>
-        <DatePicker SelectedDate="{Binding ExamDate}" Grid.Row="2" Grid.Column="3" x:Name="ComboData"/>
-        <TextBox Text="{Binding Count5}" Grid.Row="3" Grid.Column="4" ></TextBox>
-        <TextBox Text="{Binding Count4}" Grid.Row="4" Grid.Column="5" ></TextBox>
-        <TextBox Text="{Binding Count3}" Grid.Row="5" Grid.Column="6" ></TextBox>
-        <TextBox Text="{Binding IsAbsent}"  Grid.Row="6" Grid.Column="7" ></TextBox>
+        <ComboBox  Grid.Row="0" Grid.Column="1" x:Name="ComboNameGroup" DisplayMemberPath="NumberGroup"></ComboBox>
+        <ComboBox Grid.Row="1" Grid.Column="2" x:Name="ComboNameDiscipline" DisplayMemberPath="NameDiscipline"> </ComboBox>
+        <DatePicker  Grid.Row="2" Grid.Column="3" x:Name="ComboData"/>
+
+        <TextBox x:Name="Text5"  Grid.Row="3" Grid.Column="4" ></TextBox>
+        <TextBox x:Name="Text4"  Grid.Row="4" Grid.Column="5" ></TextBox>
+        <TextBox x:Name="Text3"  Grid.Row="5" Grid.Column="6" ></TextBox>
+        <TextBox x:Name="Text2"  Grid.Row="6" Grid.Column="7" ></TextBox>
 
         <Button Content="Сохранить" Grid.Column="8" Grid.Row="9" Name="BtnSave" Click="BtnSave_Click"></Button>
 
