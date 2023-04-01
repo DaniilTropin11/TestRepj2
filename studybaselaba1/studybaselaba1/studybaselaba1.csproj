@@ -75,6 +75,7 @@
     <Compile Include="DataModel\Fakultet.cs" />
     <Compile Include="DataModel\Group.cs" />
     <Compile Include="DataModel\StudyContext.cs" />
+    <Compile Include="ValidationRule.cs" />
     <Page Include="AddEditPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
