@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -52,44 +53,17 @@ namespace studybaselaba1
                 errors.AppendLine("Выберите группу");
                 MessageBox.Show("Выберите группу", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            
-            //string pattern5 = "^[0-9]+$|^-$";
-            //bool isMatch = Regex.IsMatch(Text5.Text, pattern5);
 
-            //if (!Regex.IsMatch(Text5.Text, pattern5))
-            //{
-            //    errors.AppendLine("Строка содержит некорректные символы");
-            //    MessageBox.Show("Строка содержит некорректные символы", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            //}
+            if (errors.Length == 0)
+            {
+                StudyContext.GetContext().Ocenkas.Add(ocenka);
+                StudyContext.GetContext().SaveChanges();
 
-
-            //string pattern4 = "^[0-9]+$|^-$";
-            //bool isMatch2 = Regex.IsMatch(Text4.Text, pattern4);
-
-            //if (!Regex.IsMatch(Text4.Text, pattern4))
-            //{
-            //    errors.AppendLine("Строка содержит некорректные символы");
-            //    MessageBox.Show("Строка содержит некорректные символы", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            //}
-
-            //string pattern3 = "^[0-9]+$|^-$";
-            //bool isMatch3 = Regex.IsMatch(Text3.Text, pattern3);
-
-            //if (!Regex.IsMatch(Text3.Text, pattern3))
-            //{
-            //    errors.AppendLine("Строка содержит некорректные символы");
-            //    MessageBox.Show("Строка содержит некорректные символы", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            //}
-
-            //string pattern2 = "^[0-9]+$|^-$";
-            //bool isMatch4 = Regex.IsMatch(Text2.Text, pattern2);
-
-            //if (!Regex.IsMatch(Text2.Text, pattern2))
-            //{
-            //    errors.AppendLine("Строка содержит некорректные символы");
-            //    MessageBox.Show("Строка содержит некорректные символы", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            //}
-
+                this.NavigationService.GoBack();//нет ошибок - возвращаемся к пред. странице
+                //this.DialogResult = true;
+                //Close();
+                //MessageBox.Show("Данные успешно сохранены", "Успешно", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void Grid_Error(object sender, ValidationErrorEventArgs e)
@@ -103,7 +77,9 @@ namespace studybaselaba1
                 else if (!((BindingExpressionBase)e.Error.BindingInError).HasError)
                 {
                     (e.Source as TextBox).ToolTip = null;
+                    return;
                 }
+                
             }
         }
     }

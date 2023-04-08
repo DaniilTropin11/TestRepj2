@@ -51,5 +51,10 @@ namespace studybaselaba1
         {
 
         }
+
+        private void BtnInform_Click(object sender, RoutedEventArgs e)
+        {
+            Admin.MainFrame.Navigate(new Information());
+        }
     }
 }

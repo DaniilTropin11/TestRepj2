@@ -23,5 +23,9 @@ namespace studybaselaba1
 
         public int DisciplineId { get; set; }
         public virtual Discipline Discipline { get; set; }
+        public Ocenka()
+        {
+            ExamDate = DateTime.Today;
+        }
     }
 }

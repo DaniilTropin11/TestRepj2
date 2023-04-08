@@ -9,7 +9,8 @@ namespace studybaselaba1
     public class StudyContext : DbContext
     {
         private static StudyContext _context;
-       
+        public static StudyContext Instance { get; set; }
+
         public StudyContext()
             : base("name=StudyContext")
         {
@@ -24,6 +25,7 @@ namespace studybaselaba1
         public DbSet <Fakultet> Faculties { get; set; }
         public DbSet <Group> Groups { get; set; }
         public DbSet <Discipline> Disciplines { get; set; }
+        public DbSet<Ocenka> Ocenkas { get; set; }
 
        
     }
