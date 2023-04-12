@@ -9,7 +9,7 @@ namespace studybaselaba1
     public class StudyContext : DbContext
     {
         private static StudyContext _context;
-        public static StudyContext Instance { get; set; }
+    
 
         public StudyContext()
             : base("name=StudyContext")

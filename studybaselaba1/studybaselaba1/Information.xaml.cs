@@ -50,5 +50,20 @@ namespace studybaselaba1
                 }
             }
         }
+
+        private void BtnEdit_Click(object sender, RoutedEventArgs e)
+        {
+ 
+            //Ocenka selectedOcenka = DGridBase.SelectedItem as Ocenka;
+            //if (selectedOcenka == null) 
+            //{ 
+            //    MessageBox.Show("Ничего не выбрано!");
+            //    return;
+            //}
+
+            //AddEditPage form = new AddEditPage(selectedOcenka);
+            //if(form.) == true )
+
+        }
     }
 }

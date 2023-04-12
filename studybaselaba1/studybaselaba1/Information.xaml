@@ -22,19 +22,20 @@
                     <DataGridTextColumn Header="Кол-во 4" Binding="{Binding Count4}" Width="*"></DataGridTextColumn>
                     <DataGridTextColumn Header="Кол-во 3" Binding="{Binding Count3}" Width="*"></DataGridTextColumn>
                     <DataGridTextColumn Header="Кол-во недоп." Binding="{Binding IsAbsent}" Width="*"></DataGridTextColumn>
-                    <DataGridTemplateColumn>
+                    <DataGridTemplateColumn >
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                        
+                             
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
-
                 </DataGrid.Columns>
             </DataGrid>
 
-            <Button Content="Удалить"  HorizontalAlignment="Center" Name="BtnDelete" Click="BtnDelete_Click" Width="450" Grid.Row="1"></Button>
+            <Button Content="Удалить" HorizontalAlignment="Right" Name="BtnDelete" Click="BtnDelete_Click" Width="300" Grid.Row="1"></Button>
+            <Button Content="Редактировать" HorizontalAlignment="Left" Name="BtnEdit" Click="BtnEdit_Click" Width="300" Grid.Row="1"></Button>
+
         </Grid>
     </Grid>
 </Page>
