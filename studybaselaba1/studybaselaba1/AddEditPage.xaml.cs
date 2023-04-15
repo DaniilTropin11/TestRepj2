@@ -24,21 +24,39 @@ namespace studybaselaba1
     /// </summary>
     public partial class AddEditPage : Page
     {
-        Ocenka ocenka;
-        public AddEditPage()
+        Ocenka _ocenka;
+        //public AddEditPage(Ocenka ocenka)
+        //{
+        //    InitializeComponent();
+        //    if (ocenka != null)
+        //        Ocenka = ocenka; 
+
+
+            
+        //}
+
+        public AddEditPage(Ocenka ocenka)
         {
             InitializeComponent();
 
-
-
-            ocenka = new Ocenka();
-            DataContext = ocenka;
+            if (ocenka != null)
+            {
+                _ocenka = ocenka;
+            }
+            else
+            {
+                _ocenka = new Ocenka();
+            }
+            DataContext = _ocenka;
             ComboNameGroup.ItemsSource = StudyContext.GetContext().Groups.ToList();
             ComboNameDiscipline.ItemsSource = StudyContext.GetContext().Disciplines.ToList();
-            
+
         }
 
-       
+
+
+
+
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
@@ -61,7 +79,7 @@ namespace studybaselaba1
 
             if (errors.Length == 0)
             {
-                StudyContext.GetContext().Ocenkas.Add(ocenka);
+                StudyContext.GetContext().Ocenkas.Add(_ocenka);
                 StudyContext.GetContext().SaveChanges();
 
                 this.NavigationService.GoBack();//нет ошибок - возвращаемся к пред. странице

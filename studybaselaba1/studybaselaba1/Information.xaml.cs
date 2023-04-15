@@ -28,22 +28,22 @@ namespace studybaselaba1
 
         }
 
+        
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
-            Ocenka selectedOcenka = DGridBase.SelectedItem as Ocenka;
-            if (selectedOcenka == null)
+            if (this._selectedOcenka == null)
             {
                 MessageBox.Show("Ничего не выбрано!");
                 return;
             }
             else
             {
-                var userChoice = MessageBox.Show($"Вы уверены, что хотите удалить группу {selectedOcenka.Group}?",
+                var userChoice = MessageBox.Show($"Вы уверены, что хотите удалить группу {_selectedOcenka.Group}?",
                     "Подтвердите удаление", MessageBoxButton.YesNo);
                 if (userChoice == MessageBoxResult.Yes)
                 {
-                 
-                    StudyContext.GetContext().Ocenkas.Remove(selectedOcenka);
+
+                    StudyContext.GetContext().Ocenkas.Remove(_selectedOcenka);
                     StudyContext.GetContext().SaveChanges();
                     DGridBase.ItemsSource = StudyContext.GetContext().Ocenkas.ToArray();
                    
@@ -53,17 +53,15 @@ namespace studybaselaba1
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
- 
-            //Ocenka selectedOcenka = DGridBase.SelectedItem as Ocenka;
-            //if (selectedOcenka == null) 
-            //{ 
-            //    MessageBox.Show("Ничего не выбрано!");
-            //    return;
-            //}
+           
+            Admin.MainFrame.Navigate(new AddEditPage(_selectedOcenka));
 
-            //AddEditPage form = new AddEditPage(selectedOcenka);
-            //if(form.) == true )
+        }
 
+        Ocenka _selectedOcenka; 
+        private void DGridBase_SelectionChanged(object sender, SelectionChangedEventArgs e)// DG это свойство используется только при выделении 
+        {
+            _selectedOcenka = DGridBase.SelectedItem as Ocenka;
         }
     }
 }

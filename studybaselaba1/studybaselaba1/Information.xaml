@@ -14,7 +14,7 @@
                 <RowDefinition Height="37*"/>
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
-            <DataGrid x:Name="DGridBase" AutoGenerateColumns="False" IsReadOnly="True" >
+            <DataGrid x:Name="DGridBase" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="DGridBase_SelectionChanged" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Группа" Binding="{Binding Group.NumberGroup}" Width="*"></DataGridTextColumn>
                     <DataGridTextColumn Header="Дисциплина" Binding="{Binding Discipline.NameDiscipline}" Width="*"></DataGridTextColumn>

@@ -27,14 +27,19 @@ namespace studybaselaba1
             DGridBase.ItemsSource = StudyContext.GetContext().Groups.ToList();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Admin.MainFrame.Navigate(new AddEditPage());
-        }
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Admin.MainFrame.Navigate(new AddEditPage(null));
+        //}
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            Ocenka ocenka = DGridBase.DataContext as Ocenka;
+            if (ocenka != null)
+            {
+                MessageBox.Show("Ничего не выбрано ! ");
+                return;
+            }
         }
 
         private void DGridBase_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -44,7 +49,7 @@ namespace studybaselaba1
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            Admin.MainFrame.Navigate(new AddEditPage());
+            Admin.MainFrame.Navigate(new AddEditPage(null));
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
