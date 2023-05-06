@@ -25,7 +25,6 @@ namespace studybaselaba1
             InitializeComponent();
             DGridBase.ItemsSource = StudyContext.GetContext().Ocenkas.ToList();
         
-
         }
 
         

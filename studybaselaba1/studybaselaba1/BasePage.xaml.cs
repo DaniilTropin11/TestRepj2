@@ -61,5 +61,10 @@ namespace studybaselaba1
         {
             Admin.MainFrame.Navigate(new Information());
         }
+
+        private void BtnDecanat_Click(object sender, RoutedEventArgs e)
+        {
+            Admin.MainFrame.Navigate(new Decanat());
+        }
     }
 }

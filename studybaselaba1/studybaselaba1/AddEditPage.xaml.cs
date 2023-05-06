@@ -25,15 +25,6 @@ namespace studybaselaba1
     public partial class AddEditPage : Page
     {
         Ocenka _ocenka;
-        //public AddEditPage(Ocenka ocenka)
-        //{
-        //    InitializeComponent();
-        //    if (ocenka != null)
-        //        Ocenka = ocenka; 
-
-
-            
-        //}
 
         public AddEditPage(Ocenka ocenka)
         {
@@ -47,6 +38,7 @@ namespace studybaselaba1
             {
                 _ocenka = new Ocenka();
             }
+
             DataContext = _ocenka;
             ComboNameGroup.ItemsSource = StudyContext.GetContext().Groups.ToList();
             ComboNameDiscipline.ItemsSource = StudyContext.GetContext().Disciplines.ToList();

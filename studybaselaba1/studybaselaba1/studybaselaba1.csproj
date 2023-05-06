@@ -75,6 +75,9 @@
     <Compile Include="DataModel\Fakultet.cs" />
     <Compile Include="DataModel\Group.cs" />
     <Compile Include="DataModel\StudyContext.cs" />
+    <Compile Include="Decanat.xaml.cs">
+      <DependentUpon>Decanat.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Information.xaml.cs">
       <DependentUpon>Information.xaml</DependentUpon>
     </Compile>
@@ -84,6 +87,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="BasePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Decanat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
